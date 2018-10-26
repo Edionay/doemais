@@ -10,12 +10,21 @@ import java.security.PrivateKey;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DatabaseReference firebaseReference = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference firebaseUsersReference = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseReference users = firebaseUsersReference.child("users");
+
+        User newUser = new User();
+
+        newUser.setEmail("edionay@gmail.com");
+        newUser.setName("Edionay");
+        newUser.setPassword("12345");
+
+        users.child("001").setValue(newUser);
     }
 }
