@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,40 +18,48 @@ import java.security.PrivateKey;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Manage Firebase database reference
-    private DatabaseReference firebaseUsersReference = FirebaseDatabase.getInstance().getReference();
-
-    // Reference to manage users auth on Firebase
-    private FirebaseAuth user = FirebaseAuth.getInstance();
+    private ListView foodList;
+    private String[] food = {"Camarão", "Empanado", "Cocada"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Create a new user using email and password
-        user.createUserWithEmailAndPassword("edionay@gmail.com", "ed12345")
-                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    // Exception handler
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            Log.i("CreateUser", "Success!");
-                        } else {
-                            Log.i("CreateUser", "Error!");
-                        }
-                    }
-                });
+        foodList = findViewById(R.id.foodList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getApplicationContext(),
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
+                food
+        );
 
-
-        User newUser = new User();
-
-        newUser.setEmail("edionay@gmail.com");
-        newUser.setName("Edionay");
-        newUser.setPassword("12345");
-
-        // Add new data to database
-        DatabaseReference users = firebaseUsersReference.child("users");
-        users.child("001").setValue(newUser);
+        foodList.setAdapter(adapter);
     }
 }
+
+
+// Manage Firebase database reference
+//    private DatabaseReference firebaseReference = FirebaseDatabase.getInstance().getReference();
+
+// Reference to manage users auth on Firebase
+//    private FirebaseAuth user = FirebaseAuth.getInstance();
+
+//        user.signInWithEmailAndPassword("edionay@gmail.com", "ed12345");
+//
+//        if (user.getCurrentUser() != null) {
+//            Log.i("Create User", "Logged user!");
+//        } else {
+//            Log.i("Create User", "Not logged user!");
+//        }
+//
+//
+//        User newUser = new User();
+//
+//        newUser.setEmail("edionay@gmail.com");
+//        newUser.setName("Edionay");
+//        newUser.setPassword("12345");
+//
+//        // Add new data to database
+//        DatabaseReference users = firebaseReference.child("users");
+//        users.child("001").setValue(newUser);
