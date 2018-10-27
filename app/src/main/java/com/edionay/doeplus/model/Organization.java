@@ -1,4 +1,4 @@
-package com.edionay.doeplus;
+package com.edionay.doeplus.model;
 
 public class Organization {
 
