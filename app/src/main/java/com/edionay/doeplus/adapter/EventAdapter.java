@@ -17,6 +17,7 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHo
 
     private List<Event> listEvents;
 
+
     public AdapterEventos(List<Event> list) {
         this.listEvents = list;
     }
@@ -37,9 +38,9 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Event event = listEvents.get( position );
-        holder.titulo.setText(event.getTitulo());
-        holder.data.setText(event.getDataInicio());
-        holder.local.setText(event.getLocal());
+        holder.title.setText(event.getTitle());
+        holder.date.setText(event.getDate());
+        holder.location.setText(event.getLocation());
     }
 
     @Override
@@ -49,16 +50,16 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titulo;
-        TextView local;
-        TextView data;
+        TextView title;
+        TextView location;
+        TextView date;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            titulo = itemView.findViewById(R.id.textTitulo);
-            data = itemView.findViewById(R.id.textData);
-            local = itemView.findViewById(R.id.textLocal);
+            title = itemView.findViewById(R.id.textTitulo);
+            date = itemView.findViewById(R.id.textData);
+            location = itemView.findViewById(R.id.textLocal);
         }
     }
 }
