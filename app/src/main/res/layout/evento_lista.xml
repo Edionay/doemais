@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="Título"
+            android:text="@string/title"
             android:textSize="18sp" />
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Data"
+            android:text="@string/date"
             android:textAlignment="viewEnd" />
     </LinearLayout>
 
@@ -31,6 +31,12 @@
         android:id="@+id/textLocal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Local"
+        android:text="@string/location"
         android:textSize="14sp" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
 </LinearLayout>
