@@ -1,15 +1,12 @@
 package com.edionay.doeplus.activity;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.edionay.doeplus.R;
 
-import java.security.PrivateKey;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,6 +1,6 @@
 package com.edionay.doeplus.model;
 
-public class Organization {
+public class Organization extends User {
 
 	
 	
