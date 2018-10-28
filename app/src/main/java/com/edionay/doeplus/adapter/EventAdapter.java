@@ -13,13 +13,13 @@ import com.edionay.doeplus.model.Event;
 import java.util.List;
 
 
-public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHolder> {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
 
-    private List<Event> listEvents;
+    private List<Event> eventList;
 
 
-    public AdapterEventos(List<Event> list) {
-        this.listEvents = list;
+    public EventAdapter(List<Event> list) {
+        this.eventList = list;
     }
 
     @NonNull
@@ -37,7 +37,7 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Event event = listEvents.get( position );
+        Event event = eventList.get( position );
         holder.title.setText(event.getTitle());
         holder.date.setText(event.getDate());
         holder.location.setText(event.getLocation());
@@ -45,7 +45,7 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHo
 
     @Override
     public int getItemCount() {
-        return listEvents.size();
+        return eventList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

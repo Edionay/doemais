@@ -1,82 +1,46 @@
 package com.edionay.doeplus.model;
 
-import android.location.Location;
-
 public class Event {
 
-	String titulo;
-	String dataInicio;
-	String dataFim;
-	String local;
-	String itens[];
-	//Location location;
-	String horaInicio;
-	String horaFim;
+	String title;
+	String date;
+	String location;
 
 	public Event(){
 
     }
 
-    public Event(String titulo, String dataInicio, String local) {
-        this.titulo = titulo;
-        this.dataInicio = dataInicio;
-        this.local = local;
+    public Event(String title, String date, String local) {
+        this.title = title;
+        this.date = date;
+        this.location = local;
 
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDataInicio() {
-        return dataInicio;
+    public String getDate() {
+        return date;
     }
 
-    public void setDataInicio(String dataInicio) {
-        this.dataInicio = dataInicio;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getDataFim() {
-        return dataFim;
-    }
 
-    public void setDataFim(String dataFim) {
-        this.dataFim = dataFim;
-    }
-
-    public String getLocal() {
-        return local;
+    public String getLocation() {
+        return location;
     }
 
     public void setLocal(String local) {
-        this.local = local;
+        this.location = location;
     }
 
-    public String[] getItens() {
-        return itens;
-    }
 
-    public void setItens(String[] itens) {
-        this.itens = itens;
-    }
-
-    public String getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public String getHoraFim() {
-        return horaFim;
-    }
-
-    public void setHoraFim(String horaFim) {
-        this.horaFim = horaFim;
-    }
 }

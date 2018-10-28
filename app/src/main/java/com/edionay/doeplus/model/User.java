@@ -2,6 +2,7 @@ package com.edionay.doeplus.model;
 
 public class User {
 
+    String id;
     String name;
     String password;
     String email;

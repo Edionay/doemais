@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EventListActivity">
+        <activity
+            android:name=".activity.EventListActivity"
+            android:label="@string/events">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.EventActivity"></activity>
+        <activity
+            android:name=".activity.EventActivity" />
     </application>
 
 </manifest>
