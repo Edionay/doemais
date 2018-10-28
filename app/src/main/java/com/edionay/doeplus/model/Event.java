@@ -17,15 +17,11 @@ public class Event {
 
     }
 
-    public Event(String titulo, String dataInicio, String dataFim, String local, String[] itens, Location location, String horaInicio, String horaFim) {
+    public Event(String titulo, String dataInicio, String local) {
         this.titulo = titulo;
         this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
         this.local = local;
-        this.itens = itens;
-        //this.location = location;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
+
     }
 
     public String getTitulo() {

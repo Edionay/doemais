@@ -8,10 +8,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.edionay.doeplus.R;
+import com.edionay.doeplus.model.Event;
+
+import java.util.List;
 
 
 public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHolder> {
 
+    private List<Event> listEvents;
+
+    public AdapterEventos(List<Event> list) {
+        this.listEvents = list;
+    }
 
     @NonNull
     @Override
@@ -28,14 +36,15 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.titulo.setText("Titulo de teste");
-        holder.data.setText("12/12/1212");
-        holder.local.setText("Rua da doação, n° 6665");
+        Event event = listEvents.get( position );
+        holder.titulo.setText(event.getTitulo());
+        holder.data.setText(event.getDataInicio());
+        holder.local.setText(event.getLocal());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listEvents.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
