@@ -1,5 +1,6 @@
 package com.edionay.doeplus.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class EventListActivity extends AppCompatActivity {
 
         listEvents = new ArrayList<>();
 
-        DatabaseReference events = database.child("events");
+        final DatabaseReference events = database.child("events");
 
         setContentView(R.layout.activity_event_list);
         recyclerView = findViewById(R.id.recyclerView);
@@ -46,7 +48,7 @@ public class EventListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 listEvents.clear();
-                
+
                 for(DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
                     Event event = eventSnapshot.getValue(Event.class);
                     listEvents.add(event);
@@ -59,7 +61,6 @@ public class EventListActivity extends AppCompatActivity {
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(eventAdapter);
-
             }
 
             @Override
@@ -68,22 +69,20 @@ public class EventListActivity extends AppCompatActivity {
             }
         });
 
-        //        this.criarEvents();
-
-
-        //Configurar adapter
-
-
-
         //Evento de Clique
         recyclerView.addOnItemTouchListener(
+
                 new RecyclerItemClickListener(
                         getApplicationContext(),
                         recyclerView,
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Toast.makeText(getApplicationContext(), "Mas aí clica memo", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(getApplicationContext(), EventViewActivity.class);
+                                intent.putExtra("event", listEvents.get(position));
+
+                                startActivity(intent);
                             }
 
                             @Override

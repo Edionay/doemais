@@ -20,7 +20,12 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity
-            android:name=".activity.EventActivity" />
+            android:name=".activity.EventActivity"
+            android:label="Evento" />
+        <activity
+            android:name=".activity.EventViewActivity"
+            android:label="@string/title_activity_event_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
