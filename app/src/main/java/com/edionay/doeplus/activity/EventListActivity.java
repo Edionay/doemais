@@ -68,7 +68,7 @@ public class EventListActivity extends AppCompatActivity {
             }
         });
 
-        //Evento de Clique
+        //Click Event
         recyclerView.addOnItemTouchListener(
 
                 new RecyclerItemClickListener(

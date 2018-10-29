@@ -21,17 +21,16 @@ public class EventViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-
         Bundle data = getIntent().getExtras();
         assert data != null;
         Event event = (Event) data.getSerializable("event");
 
         setContentView(R.layout.activity_event_view);
 
-        //Configurar lista
+        //List configuration
         listItens = findViewById(R.id.listItens);
 
-        //Adapter
+        //Adapter is created
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_1,
