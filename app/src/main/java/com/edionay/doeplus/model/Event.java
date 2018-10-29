@@ -1,12 +1,16 @@
 package com.edionay.doeplus.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Event implements Serializable{
 
 	String title;
 	String date;
+	String timeStart;
+	String timeEnd;
 	String location;
+	List<String> itens;
 
 	public Event(){
 
@@ -35,7 +39,6 @@ public class Event implements Serializable{
         this.date = date;
     }
 
-
     public String getLocation() {
         return location;
     }
@@ -44,5 +47,11 @@ public class Event implements Serializable{
         this.location = location;
     }
 
+    public List<String> getItens() {
+        return itens;
+    }
 
+    public void setItens(List<String> itens) {
+        this.itens = itens;
+    }
 }
