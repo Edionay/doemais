@@ -10,7 +10,7 @@ public class Event implements Serializable{
 	String timeStart;
 	String timeEnd;
 	String location;
-	List<String> itens;
+	String description;
 
 	public Event(){
 
@@ -47,11 +47,31 @@ public class Event implements Serializable{
         this.location = location;
     }
 
-    public List<String> getItens() {
-        return itens;
+    public String getTimeStart() {
+        return timeStart;
     }
 
-    public void setItens(List<String> itens) {
-        this.itens = itens;
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public String getTimeEnd() {
+        return timeEnd;
+    }
+
+    public void setTimeEnd(String timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

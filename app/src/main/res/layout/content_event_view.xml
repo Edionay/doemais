@@ -30,7 +30,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp">
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginStart="4dp">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -75,41 +79,64 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
                 android:id="@+id/dateEvent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:ems="10"
-                android:inputType="date" />
+                android:text="TextView"
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:orientation="horizontal">
+                android:gravity="bottom">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <EditText
-                    android:id="@+id/editText4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="time" />
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/timeEvent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="time" />
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:text="das   "
+                        android:textAlignment="viewEnd"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/timeStartEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="timeStart"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="até"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/timeEndEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="timeEnd"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -119,11 +146,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/listItens"
+            <TextView
+                android:id="@+id/descriptionEvent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="TextView"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>
