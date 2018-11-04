@@ -17,19 +17,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
-            android:orientation="horizontal">
-
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapEvent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:layout_marginBottom="30dp"
             android:layout_marginEnd="4dp"
             android:layout_marginLeft="4dp"
@@ -55,15 +42,38 @@
                     android:text="@string/title"
                     android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/locationEvent"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/location"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/locationEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/location"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/addressEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="@string/address"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:orientation="horizontal">
 
         </LinearLayout>
 
@@ -84,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="TextView"
+                android:text="@string/date"
                 android:textSize="18sp" />
 
             <LinearLayout
