@@ -10,17 +10,17 @@ public class Event implements Serializable{
 	String timeStart;
 	String timeEnd;
 	String location;
-	String address;
+//	String address;
 	String description;
 
 	public Event(){
 
     }
 
-    public Event(String title, String date, String local) {
+    public Event(String title, String date, String location) {
         this.title = title;
         this.date = date;
-        this.location = local;
+        this.location = location;
 
     }
 
@@ -76,11 +76,11 @@ public class Event implements Serializable{
         this.description = description;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
 }

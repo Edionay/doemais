@@ -24,7 +24,7 @@ public class EventViewActivity extends AppCompatActivity {
         //Setting up textViews
         Toolbar toolbar = findViewById(R.id.toolbar);
         TextView location = findViewById(R.id.locationEvent);
-        TextView address = findViewById(R.id.addressEvent);
+//        TextView address = findViewById(R.id.addressEvent);
         TextView title = findViewById(R.id.titleEvent);
         TextView date = findViewById(R.id.dateEvent);
         TextView timeEnd = findViewById(R.id.timeEndEvent);
@@ -37,7 +37,7 @@ public class EventViewActivity extends AppCompatActivity {
         toolbar.setTitle(event.getTitle());
         title.setText(event.getTitle());
         location.setText(event.getLocation());
-        address.setText(event.getAddress());
+//        address.setText(event.getAddress());
         date.setText(event.getDate());
         timeEnd.setText(event.getTimeEnd());
         timeStart.setText(event.getTimeStart());
