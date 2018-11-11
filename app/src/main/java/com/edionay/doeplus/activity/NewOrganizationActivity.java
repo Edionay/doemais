@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class NewOrganizationActivity extends AppCompatActivity {
 
@@ -72,8 +75,23 @@ public class NewOrganizationActivity extends AppCompatActivity {
                             "Cadastro efetuado",
                             Toast.LENGTH_SHORT).show();
                 } else {
+
+                    String exception = "";
+                    try{
+                        throw task.getException();
+                    }catch (FirebaseAuthWeakPasswordException e){
+                        exception = "Escolha um senha mais forte";
+                    }catch (FirebaseAuthInvalidCredentialsException e){
+                        exception = "Por favor escolha um email válido";
+                    }catch (FirebaseAuthUserCollisionException e){
+                        exception = "E-mail já utilizado";
+                    }catch (Exception e){
+                        exception = "Erro ao cadastrar o usuário: " + e.getMessage();
+                        e.printStackTrace();
+                    }
+
                     Toast.makeText(NewOrganizationActivity.this,
-                            "Erro ao cadastrar!",
+                            exception,
                             Toast.LENGTH_SHORT).show();
                 }
             }
