@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.edionay.doeplus.R;
@@ -30,6 +33,7 @@ public class EventListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Event> listEvents;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    private EventAdapter eventAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,7 @@ public class EventListActivity extends AppCompatActivity {
                     Event event = eventSnapshot.getValue(Event.class);
                     listEvents.add(event);
                 }
-                EventAdapter eventAdapter = new EventAdapter(listEvents);
+                eventAdapter = new EventAdapter(listEvents);
 
 
                 //RecyclerView setup
@@ -108,5 +112,37 @@ public class EventListActivity extends AppCompatActivity {
             }
         });
 
+
+        EditText editText = findViewById(R.id.editText);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+
+    private void filter(String text){
+        ArrayList<Event> filteredList = new ArrayList<>();
+
+        for(Event event: listEvents){
+            if ( event.getTitle().toLowerCase().contains(text.toLowerCase())
+                    ||  event.getLocation().toLowerCase().contains(text.toLowerCase())
+                    ||  event.getDate().toLowerCase().contains(text.toLowerCase())
+                    /*||  event.getAddress().toLowerCase().contains(text.toLowerCase())*/){
+                filteredList.add(event);
+            };
+        }
+        eventAdapter.filterList(filteredList);
     }
 }

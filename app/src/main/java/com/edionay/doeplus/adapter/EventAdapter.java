@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.edionay.doeplus.R;
 import com.edionay.doeplus.model.Event;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -59,5 +60,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             date = itemView.findViewById(R.id.textData);
             location = itemView.findViewById(R.id.textLocal);
         }
+    }
+
+    public void filterList(ArrayList<Event> filteredList){
+        eventList = filteredList;
+        notifyDataSetChanged();
     }
 }
