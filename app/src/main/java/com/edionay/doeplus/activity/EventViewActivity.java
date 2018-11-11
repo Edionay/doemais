@@ -1,8 +1,12 @@
 package com.edionay.doeplus.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.edionay.doeplus.R;
@@ -10,6 +14,7 @@ import com.edionay.doeplus.model.Event;
 
 public class EventViewActivity extends AppCompatActivity {
 
+    Event event;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +23,8 @@ public class EventViewActivity extends AppCompatActivity {
         Bundle data = getIntent().getExtras();
         assert data != null;
         Event event = (Event) data.getSerializable("event");
+
+        this.event = event;
 
         setContentView(R.layout.activity_event_view);
 
@@ -44,5 +51,14 @@ public class EventViewActivity extends AppCompatActivity {
         description.setText(event.getDescription());
 
         setSupportActionBar(toolbar);
+
+
+    }
+
+
+    public void showMap(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?q=" + this.event.getLocation()
+                /* + ", " + this.event.getAddress() */ ));
+        startActivity(intent);
     }
 }
