@@ -17,6 +17,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -49,9 +53,15 @@ public class LoginActivity extends AppCompatActivity {
                         organization.setEmail(emailField);
                         organization.setPassword(passwordField);
                         login(organization);
+                    }else{
+                        Toast.makeText(LoginActivity.this,
+                                "Preencha a senha",
+                                Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    //Handle errors
+                    Toast.makeText(LoginActivity.this,
+                            "Preencha o e-mail",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -78,8 +88,21 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
                             startActivity(intent);
                         } else {
+
+                            String exception = "";
+                            try{
+                                throw task.getException();
+                            }catch (FirebaseAuthInvalidUserException e){
+                                exception = "E-mail ou senha não correspondem a um usuário cadastrado";
+                            }catch (FirebaseAuthInvalidCredentialsException e){
+                                exception = "Por favor escolha um email ou senha validos";
+                            }catch (Exception e){
+                                exception = "Erro no login: " + e.getMessage();
+                                e.printStackTrace();
+                            }
+
                             Toast.makeText(LoginActivity.this,
-                                    "Falha no login",
+                                    exception,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
